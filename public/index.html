@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Electron App</title>
+        <link rel="stylesheet" href="./styles/main.css"/>
+    </head>
+
+    <body>
+        <div class="util1">
+            <div class="title">File Editor Utility</div>
+            <div class="wrapper">
+                <textarea id="editor" rows="20"></textarea>
+                <div class="button-container">
+                    <button id="openBtn" title="Open file">
+                        <img src="icons/book-open.svg" alt="" class="icon">
+                        OPEN FILE
+                    </button>
+                    <button id="saveBtn" title="Save to new file">
+                        <img src="icons/file-plus.svg" alt="" class="icon">
+                        SAVE NEW FILE
+                    </button>
+                    <button id="saveCurrBtn" title="Save Current file">
+                        <img src="icons/save.svg" alt="" class="icon">
+                        SAVE FILE
+                    </button>
+                    <button id="clearBtn" title="Clear Content">
+                        <img src="icons/delete.svg" alt="" class="icon">
+                        CLEAR CONTENT
+                    </button>
+                    <button id="exitBtn" title="Exit application">
+                        <img src="icons/x-circle.svg" alt="" class="icon">
+                        EXIT WINDOW
+                    </button>
+                </div>
+            </div>
+            <div class="filename">
+                <span id="filepath"></span>
+            </div>
+        </div>
+
+        <div class="util2">
+            <div class="cmd-button-container">
+                <button id="cmdBtnPConfig" title="CMD: IPCONFIG">
+                    <img src="icons/command.svg" alt="" class="icon">
+                    IPCONFIG
+                </button>
+            </div>
+        </div>
+        
+        <div class="info">
+            We are using Node.js <span id="node-version"></span>,
+            Chromium <span id="chrome-version"></span>,
+            and Electron <span id="electron-version"></span>.
+        </div>
+        <script src="../src/renderer.js"></script>
+    </body>
+</html>

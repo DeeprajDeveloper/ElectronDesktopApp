@@ -1,0 +1,19 @@
+undefined
+if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, ...args); // Pass all arguments to ipcRenderer
+    }
+if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, ...args); // Pass all arguments to ipcRenderer
+    }
+if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, ...args); // Pass all arguments to ipcRenderer
+    }
+if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, ...args); // Pass all arguments to ipcRenderer
+    }
+if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, ...args); // Pass all arguments to ipcRenderer
+    }
+
+-----------------------------------------------------
+appending data to existing file.

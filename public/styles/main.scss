@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Calibri', sans-serif;
+}
+
+body {
+    padding: 10px;
+
+    .icon {
+        width       : 16px;
+        height      : 16px;
+        margin-right: 8px;
+    }
+}
+
+.title {
+    text-align: center;
+    background-color: #cfcfcf;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+.info {
+    font-size: 11px;
+    position: fixed;
+    padding: 4px 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+    background-color: #fff;
+}
+
+.filename {
+    font-size: 12px;
+    margin-top: 10px;
+    padding-top: 6px;
+    color: grey;
+    border-top: 1px solid #e0e0e0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+
+    #editor {
+        resize: none;
+        overflow: scroll;
+        width: 80%;
+        padding: 4px;
+        font-family: 'Consolas', monospace;
+        border: 1px solid #e0e0e0;
+    }
+
+    .button-container {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 100%;
+        padding: 4px;
+
+        #openBtn, #saveBtn, #saveCurrBtn {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+                border: 1px solid #c0c0c0;
+                background-color: #f0f0f0;
+                transition: .3s all;
+                box-shadow: 3px 3px 1px #c0c0c0;
+            }
+        }
+
+        #clearBtn {
+            background-color: #e7feff;
+            border: 1px solid #4cbac0;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+                border: 1px solid #3e9397;
+                background-color: #bafcff;
+                transition: .3s all;
+                box-shadow: 3px 3px 1px #c0c0c0;
+            }
+        }
+
+        #exitBtn {
+            background-color: #ffeeee;
+            border: 1px solid #ff9999;
+            color: #ff0000;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #ffd0d0;
+                border: 1px solid #ff0000;
+                transition: .3s all;
+                box-shadow: 3px 3px 1px #c0c0c0;
+            }
+        }
+    }
+}
+
+.cmd-button-container {
+    #cmdBtnPConfig {
+        border: 1px solid #d0d0d0;
+        background-color: #f9f9f9;
+
+        &:hover {
+            cursor: pointer;
+            transition: .3s all;
+            box-shadow: 3px 3px 1px #c0c0c0;
+        }
+    }
+}
+
+button {
+    margin: 4px 10px;
+    padding: 8px 10px;
+    font-size: inherit;
+    transition: .3s all;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
