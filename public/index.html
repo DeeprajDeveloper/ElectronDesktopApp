@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Electron App</title>
         <link rel="stylesheet" href="./styles/main.css"/>
+        <link rel="stylesheet" href="./styles/model.css" />
     </head>
 
     <body>
@@ -42,18 +43,59 @@
 
         <div class="util2">
             <div class="cmd-button-container">
-                <button id="cmdBtnPConfig" title="CMD: IPCONFIG">
-                    <img src="icons/command.svg" alt="" class="icon">
-                    IPCONFIG
+                <button id="cmdBtnIPConfig" title="Launch as a different user">
+                    <img src="icons/users.svg" alt="" class="icon">
+                    Launch as Different User Prompt
                 </button>
+                <div class="cmd-input">
+                    <input type="text" name="inpCommand" id="inpCommand" placeholder="Windows Shell commands ...">
+                    <button id="cmdBtnCustom" title="CMD: custom">
+                        <img src="icons/play.svg" alt="" class="icon">
+                        RUN CMD
+                    </button>
+                </div>
+            </div>
+            <div class="result-display">
+                <span id="cmd-title">COMMAND OUTPUT</span>
+                <span id="cmd-display"></span>
             </div>
         </div>
-        
+
+        <!-- Modal for entering credentials -->
+        <div id="credentialsModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="model-title">
+                    <span class="head">RUN AS A DIFFERENT USER</span>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="model-inputs">
+                    <div class="user-input">
+                        <label for="userID">Username:</label>
+                        <input type="text" id="userID" required>
+                    </div>
+                    <div class="user-input">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <div class="user-input">
+                        <label for="appPath">Application Path:</label>
+                        <input type="text" id="appPath" required>
+                    </div>
+                    
+                </div>
+                <div class="model-buttons">
+                    <button id="submitCredentials">RUN APPLICATION</button>
+                </div>
+            </div>
+        </div>
+
         <div class="info">
             We are using Node.js <span id="node-version"></span>,
             Chromium <span id="chrome-version"></span>,
-            and Electron <span id="electron-version"></span>.
+            and Electron <span id="electron-version"></span>,
+            Application Version: <span id="app-version"></span>
         </div>
+
         <script src="../src/renderer.js"></script>
     </body>
 </html>

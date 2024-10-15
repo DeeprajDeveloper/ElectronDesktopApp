@@ -27,7 +27,7 @@ body {
 }
 
 .info {
-    font-size: 11px;
+    font-size: 12px;
     position: fixed;
     padding: 4px 0;
     bottom: 0;
@@ -35,6 +35,11 @@ body {
     text-align: center;
     display: block;
     background-color: #fff;
+    font-weight: 600;
+
+    span {
+        color: #da007f;
+    }
 }
 
 .filename {
@@ -116,15 +121,61 @@ body {
 }
 
 .cmd-button-container {
-    #cmdBtnPConfig {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    .cmd-input {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        #inpCommand {
+            height: max-content;
+            width: 400px;
+            padding: 6px;
+            font-family: 'Consolas', monospace;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+        }
+    }
+
+    #cmdBtnIPConfig, #cmdBtnCustom {
         border: 1px solid #d0d0d0;
-        background-color: #f9f9f9;
+        background-color: #ffffff;
 
         &:hover {
             cursor: pointer;
             transition: .3s all;
             box-shadow: 3px 3px 1px #c0c0c0;
+            background-color: #e7ffd8;
+            border: 1px solid #4cc700;
         }
+    }
+}
+
+.result-display {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+
+    #cmd-title {
+        font-weight: 600;
+        padding: 4px;
+        background-color: #cfcfcf;
+    }
+
+    #cmd-display {
+        margin-top: 4px;
+        font-family: 'Consolas', monospace;
+        max-height: 300px;
+        font-size: 12px;
+        overflow-y: scroll;
     }
 }
 
@@ -138,4 +189,6 @@ button {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    font-size: 14px;
 }
+

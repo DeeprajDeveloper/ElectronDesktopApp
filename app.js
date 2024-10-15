@@ -1,5 +1,6 @@
 const { app, BrowserWindow, dialog, ipcMain } = require('electron');
 const fs = require('fs');
+const { exec } = require('child_process');
 const path = require('path');
 const extToLang = require(path.join(__dirname, "./src/mapping.js"));
 
@@ -89,4 +90,45 @@ ipcMain.on("save-current-file", (event, filePath, content) => {
         console.error(`[app.js] Failed to save file: ${err}`);
         event.reply("save-file-error", err.message);
     }
+});
+
+
+ipcMain.on("execute-command", (event, command) => {
+    try {
+		console.log("----------------------------------------------------");
+        console.log(
+            `[app.js] Received event execute-command -- command received '${command}'`
+        );
+		if(command === "") {
+			event.reply("command-result", "No command provided. No results to be displayed.");
+		} else {
+			exec(command, (error, stdout, stderr) => {
+				console.log('[app.js] Executing Command ...')
+				if (error) {
+					console.error(`exec error: ${error}`);
+					event.reply("command-result", `Error: ${error.message}`);
+					return;
+				}
+				if (stderr) {
+					console.error(`stderr: ${stderr}`);
+					event.reply("command-result", `Error: ${stderr}`);
+					return;
+				}
+				// Send the command output back to the renderer process
+				// console.log(stdout);
+				event.reply("command-result", stdout);
+			});
+		}
+	} catch (error) {
+		console.log(`Error: ${error.message}`);
+	}
+});
+
+
+ipcMain.on("run-as-different-user", (event, userID, password, appPath) => {
+	console.log("----------------------------------------------------");
+	console.log(`[app.js] Running application as a different user: UserID: ${userID}`);
+	console.log(`[app.js] Running application as a different user: Password: ${password}`);
+	console.log(`[app.js] Running application as a different user: app path: ${appPath}`);
+	event.reply("command-result", "Sending results blah blah blah blah blah ...");
 });
