@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command History</title>
+    <link rel="stylesheet" href="./styles/history.css" />
+</head>
+
+<body>
+    <div class="title">
+        Program History
+    </div>
+
+    <!-- <details>
+        <summary>Click for information</summary>
+        <div class="information">
+            This is a sample text.
+        </div>
+    </details> -->
+    
+    <div id="historyList"></div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        ipcRenderer.on('load-history', (event, history) => {
+
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = ''; // Clear any existing content
+
+            history.forEach((command, index) => {
+
+                let splitData = command.split('|');
+                const mainDiv = document.createElement('div');
+                const dataDiv = document.createElement('data');
+                const listItem = document.createElement('span');
+                const timeItem = document.createElement('time');
+                const notif = document.createElement('notif');
+
+                listItem.textContent = `${splitData[0]}`;
+                timeItem.textContent = `Saved on ${splitData[1]}`;
+
+                mainDiv.addEventListener('click', () => {
+                    navigator.clipboard.writeText(splitData[0])
+                        .then(() => {
+                            notif.textContent = 'Copied to Clipboard';
+                            // alert(`Copied to clipboard`);
+                            dataDiv.appendChild(timeItem)
+                            dataDiv.appendChild(notif);
+                            mainDiv.classList.add('bgColor_green');
+
+                            setTimeout(() => {
+                                dataDiv.removeChild(notif);
+                                mainDiv.classList.remove('bgColor_green');
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Failed to copy: ', err);
+                        });
+                });
+                dataDiv.appendChild(timeItem);
+                mainDiv.appendChild(listItem);
+                mainDiv.appendChild(dataDiv);
+                historyList.appendChild(mainDiv);
+
+            });
+        });
+    </script>
+</body>
+
+</html>

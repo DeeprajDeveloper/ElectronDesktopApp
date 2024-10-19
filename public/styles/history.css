@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Calibri", sans-serif;
+}
+
+body {
+  padding: 10px;
+}
+body .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+details {
+  font-size: 14px;
+  padding: 10px 0;
+  transition: 0.3s all;
+  font-family: "Calibri", sans-serif;
+}
+details:hover {
+  cursor: pointer;
+}
+details .information {
+  padding: 10px;
+  margin-top: 4px;
+}
+details summary {
+  list-style: none;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+  background-color: #fbffd8;
+  padding: 10px;
+}
+
+#historyList div {
+  border: 1px solid #e0e0e0;
+  margin: 8px 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s all;
+}
+#historyList div:hover {
+  cursor: pointer;
+  border: 1px solid #59acff;
+  background-color: #f3f9ff;
+  transition: 0.3s all;
+}
+#historyList div data {
+  display: flex;
+  flex-direction: column;
+  transition: notif 0.3s ease;
+}
+#historyList div data notif {
+  font-size: 12px;
+  margin: 4px 0;
+  font-weight: 600;
+  color: #00862d;
+}
+#historyList span {
+  font-family: "Consolas", monospace;
+  font-size: 14px;
+}
+#historyList time {
+  font-size: 12px;
+  color: #858585;
+}
+
+.bgColor_green {
+  background-color: #eafff1;
+  transition: background-color 0.3s ease;
+}/*# sourceMappingURL=history.css.map */

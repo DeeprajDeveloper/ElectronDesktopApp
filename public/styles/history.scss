@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Calibri', sans-serif;
+}
+
+body {
+    padding: 10px;
+
+    .icon {
+        width       : 16px;
+        height      : 16px;
+        margin-right: 8px;
+    }
+}
+
+details {
+    // background-color: #f3f9ff;
+    font-size   : 14px;
+    padding     : 10px 0;
+    transition  : .3s all;
+    font-family : "Calibri", sans-serif;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .information {
+        padding: 10px;
+        margin-top: 4px;
+        // border: 1px solid #e0e0e0;
+    }
+
+    summary {
+        list-style: none;
+    }
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    background-color: #fbffd8;
+    padding: 10px;
+}
+
+#historyList {
+    div {
+        border: 1px solid #e0e0e0;
+        margin: 8px 0;
+        padding: 8px;
+        // text-transform: uppercase;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        transition: .3s all;
+
+        &:hover {
+            cursor: pointer;
+            border: 1px solid #59acff;
+            background-color: #f3f9ff;
+            transition: .3s all;
+        }
+
+        data {
+            display: flex;
+            flex-direction: column;
+
+            notif {
+                font-size: 12px;
+                margin: 4px 0;
+                font-weight: 600;
+                color: #00862d;
+            }
+
+            transition: notif .3s ease;
+        }
+    }
+
+    span {
+        font-family: 'Consolas', monospace;
+        font-size: 14px;
+    }
+
+    time {
+        font-size: 12px;
+        color: #858585;
+    }
+}
+
+.bgColor_green {
+    background-color: #eafff1;
+    transition: background-color .3s ease;
+}
+
